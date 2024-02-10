@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../hooks/ShoppingCartContext";
-import { Card, Button } from "flowbite-react";
+import { Card } from "flowbite-react";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import CheckoutForm from "./checkoutForm";
 import { loadStripe } from "@stripe/stripe-js";
