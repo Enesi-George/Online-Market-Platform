@@ -14,18 +14,19 @@ export function ShoppingCart() {
   };
 
   return (
-    <div className="">
-      <div className="w-full px-44 py-1.5 text-sm border-yellow-300 border-t-2 site-color-red text-white relative">
-        <h2>My Cart</h2>
-        <div className="flex justify-between items-center">
-          <p className="font-bold">Total Price: ${getTotalPrice()}</p>
-
-          <Link
-            to={"/checkout/payment"}
-            className="font-bold md:absolute sm:relative right-44 bg-gray-800 rounded-tr-md rounded-bl-lg hover:bg-gray-700  p-4 top-1/2 transform -translate-y-1/2 duration-300"
-          >
-            Checkout
-          </Link>
+    <div className=" ">
+      <div className="w-full px-16 md:px-44 sm:py-1.5 text-sm border-yellow-300 border-t-2 site-color-red text-white relative ">
+        <div className="mx-auto relative max-w-4xl">
+          <h1> My Cart</h1>
+          <div className="flex  mt-3 ">
+            <p className="font-bold">Total Price: ${getTotalPrice()}</p>
+            <Link
+              to={"/checkout/payment"}
+              className="font-bold md:absolute ml-32 md:right-0 bg-gray-800 rounded-tr-md rounded-bl-lg hover:bg-gray-700  p-4 top-1/2 transform -translate-y-1/2 duration-300"
+            >
+              Checkout
+            </Link>
+          </div>
         </div>
       </div>
 

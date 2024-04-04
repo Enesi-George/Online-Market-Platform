@@ -2,25 +2,28 @@ import OverviewImage from "../assets/overview.jpg";
 import { PiTruckLight } from "react-icons/pi";
 import { RiRefund2Line } from "react-icons/ri";
 import { FcCustomerSupport } from "react-icons/fc";
+import "../index.css";
+
+
 
 export const Overview = () => {
   return (
     <>
-      <div className="relative flex">
+      <div className=" mx-auto max-w-5sm relative flex">
         <div className="flex-1">
           <img
-            className="w-full h-96 xs:h-40 object-cover"
+            className="w-full h-64 md:h-96 object-cover"
             src={OverviewImage}
             alt="Meaningful alt text for an image that is not purely decorative"
           />
         </div>
-        <div className="flex-1 h-96 xs:h-40 absolute inset-0 bg-black opacity-50"></div>
-        <div className="absolute top-0 right-0 p-4 text-white flex-1 w-full md:w-1/2 lg:w-1/2">
+        <div className="flex-1 h-64 md:h-96 absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute top-0 right-0 p-4 mt-4 md:mt-14 text-white flex-1 w-full md:w-1/2 lg:w-1/2">
           <h5 className="text-2xl sm:text-xl md:text-3xl lg:text-5xl font-bold tracking-tight">
             <span className="text-red-500 font-bold border-white">GG </span>
             CONNECT
           </h5>
-          <p className="font-normal mt-2 text-sm leading-2 md:text-base md:leading-2 lg:text-lg lg:leading-9 ">
+          <p className="font-normal mt-2 text-xs leading-2 md:text-xs md:leading-2 lg:text-md ">
             Your reliable online marketplace platform, connecting buyers and
             sellers seamlessly. At GG CONNECT, Our commitment extends to
             providing safe and swift deliveries, guaranteeing authenticity

@@ -5,8 +5,6 @@ export const HomePage = () => {
     <div className="lg:px-44 sm:px-4 h-2/3">
       <div>
         <Overview />
-
-        
       </div>
     </div>
   );

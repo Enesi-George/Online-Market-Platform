@@ -36,18 +36,19 @@ export function Phone() {
   };
 
   return (
-    <div className="flex flex-wrap px-14 mt-4 ">
+    <div className="flex flex-wrap px-12 mt-4 mx-auto max-w-5xl ">
       {phoneDetails.map((phoneDetail) => (
         <div
           key={phoneDetail.id}
-          className="w-full my-3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 px-4 py-2"
+          className="w-full my-3 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 py-2 px-2"
+          
         >
-          <Card className="max-w-sm">
-            <Link to={phoneDetail.to}>
+          <Card className="max-w-sm border">
+            <Link to={phoneDetail.to} >
               <img
                 src={phoneDetail.image}
                 alt={phoneDetail.name}
-                className="object-contain h-48 w-full mb-4"
+                className="object-contain h-48 w-full mb-4 "
               />
               <h2 className=" font-semibold text-sm">{phoneDetail.name}</h2>
             </Link>
@@ -57,7 +58,7 @@ export function Phone() {
             <p className="text-gray-800 font-bold text-sm ">
               ${phoneDetail.price}
             </p>
-            <div className="flex justify-between items-center my-0">
+            <div className="flex justify-between items-center my-0" >
               <Button
                 onClick={() => handleAddToCart(phoneDetail.id)}
                 className={`flex-1 mr-2 ${

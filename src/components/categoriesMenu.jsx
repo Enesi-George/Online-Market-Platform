@@ -18,15 +18,15 @@ export function CategoriesMenu() {
   return (
     <Dropdown
       label="All Categories"
-      className="md:justify-start my-0"
       style={{
+        display: 'inline-block', // Changed display property to inline-block
+        border: '2px solid white',
         backgroundColor: "#EF5350",
         borderRadius: "0px",
         margin: "0px",
-        padding: "5px",
+        padding: "0px",
         outline: "none",
         boxShadow: "none",
-        transition: "background-color 0.3s ease-in-out", // Add transition for a smooth effect
         cursor: "pointer",
       }}
       hoverStyle={{ backgroundColor: "#D32F2F" }} // Add hover style

@@ -23,11 +23,11 @@ export const Checkout = () => {
   };
 
   return (
-    <div className="mx-44 mt-8">
+    <div className="mt-8 mx-auto max-w-4xl">
       <Card className="mb-4">
         <Link
           to={"/Shopping/Cart"}
-          className=" text-sm text-white mx-12 rounded-md border w-32 p-2 bg-gray-800 hover:bg-gray-700 transition-all duration-300"
+          className=" text-sm text-white rounded-md border w-32 p-2 bg-gray-800 hover:bg-gray-700 transition-all duration-300"
         >
           <p className="flex flex-row w-52">
             <FaLongArrowAltLeft className="my-auto mx-1" />
@@ -36,32 +36,35 @@ export const Checkout = () => {
         </Link>
         <hr className="mt-0 mb-5" />
 
-        <div className="flex flex-row justify-between mx-12 gap-12">
-          <div className="w-2/5">
+        <div className="flex flex-col lg:flex-row justify-between gap-12">
+          <div className="w-full lg:w-1/2">
             <h3 className="text-lg font-bold mb-2">Order Summary</h3>
-            {cartItems.map((item) => (
-              <div
-                key={item.id}
-                className=" flex justify-between text-center mb-9"
-              >
-                <img src={item.image} alt={item.name} className="w-16 h-20" />
-                <p className="my-auto">{item.name}</p>
-                <p className="my-auto">${item.price}</p>
-                <p className="my-auto">x{item.quantity}</p>
-              </div>
-            ))}
+            <div className="overflow-y-auto">
+              {cartItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex justify-between text-center mb-9 mr-6"
+                >
+                  <img src={item.image} alt={item.name} className="w-16 h-20" />
+                  <p className="my-auto">{item.name}</p>
+                  <p className="my-auto">${item.price}</p>
+                  <p className="my-auto">x{item.quantity}</p>
+                </div>
+              ))}
+            </div>
+
             <hr className="my-2" />
             <div className="flex space-x-5 items-center w-2/5">
               <p className="">Items:</p>
               <b>{cartItems.length}</b>
             </div>
-            <div className="flex space-x-5 items-center w-2/5">
+            <div className="flex space-x-5 items-center w-full">
               <p className="">Total:</p>
               <b>$ {getTotalPrice()}</b>
             </div>
           </div>
 
-          <div className=" w-1/2">
+          <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
             <h3 className="text-lg font-bold mb-2">Billing Address</h3>
             <hr className="mb-4" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -81,40 +84,31 @@ export const Checkout = () => {
                 placeholder={billingAddress.contact}
                 className="p-2 border w-full border-gray-300 rounded"
               />
-            </div>
-
-            <div className=" mt-5">
-              <p className="mb-2"> Shipping Address</p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder={billingAddress.address}
-                  className="p-2 border w-full border-gray-300 rounded"
-                />
-                <input
-                  type="text"
-                  placeholder={billingAddress.city}
-                  className="p-2 border w-full border-gray-300 rounded"
-                />
-                <input
-                  type="text"
-                  placeholder={billingAddress.state}
-                  className="p-2 border w-full border-gray-300 rounded"
-                />
-
-                <input
-                  type="text"
-                  placeholder={billingAddress.country}
-                  className="p-2 border w-full border-gray-300 rounded"
-                />
-
-                <input
-                  type="text"
-                  placeholder={billingAddress.zipcode}
-                  className="p-2 border w-full border-gray-300 rounded"
-                />
-              </div>
+              <input
+                type="text"
+                placeholder={billingAddress.address}
+                className="p-2 border w-full border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder={billingAddress.city}
+                className="p-2 border w-full border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder={billingAddress.state}
+                className="p-2 border w-full border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder={billingAddress.country}
+                className="p-2 border w-full border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder={billingAddress.zipcode}
+                className="p-2 border w-full border-gray-300 rounded"
+              />
             </div>
             <div className="mt-4">
               <Elements stripe={stripePromise}>

@@ -4,13 +4,13 @@ import { useShoppingCart } from "../hooks/ShoppingCartContext";
 export const Brand = () => {
   const { cartItems } = useShoppingCart();
   return (
-    <div className="bg-white lg:px-44 py-3 sm:px-4 ">
+    <div className="mx-auto max-w-7xl bg-white lg:px-44 py-3 px-3">
       <div className="flex justify-between items-center">
-        <div className="sm:justify-center text-2xl">
+        <div className="text-center sm:text-left text-2xl mb-2 sm:mb-0">
           <span className="text-red-500 font-bold">GG</span> CONNECT
         </div>
 
-        <div className="">
+        <div className="mt-4 sm:mt-0  hidden sm:block">
           <form>
             <label
               htmlFor="default-search"
@@ -53,7 +53,7 @@ export const Brand = () => {
           </form>
         </div>
 
-        <div className="relative mr-0 ">
+        <div className="relative mt-4 sm:mt-0 ">
           <Link to={"/shopping/cart"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
