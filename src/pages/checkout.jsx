@@ -12,7 +12,8 @@ export const Checkout = () => {
 
   // Placeholder user data for billing address
   const billingAddress = {
-    name: "Name",
+    first_name: "First Name",
+    last_name: "Last Name",
     email: "Email",
     contact: "+234-81...",
     address: "23, los Angela Street....",
@@ -70,7 +71,12 @@ export const Checkout = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
-                placeholder={billingAddress.name}
+                placeholder={billingAddress.first_name}
+                className="p-2 border w-full border-gray-300 rounded"
+              />
+              <input
+                type="text"
+                placeholder={billingAddress.last_name}
                 className="p-2 border w-full border-gray-300 rounded"
               />
               <input
@@ -102,11 +108,6 @@ export const Checkout = () => {
               <input
                 type="text"
                 placeholder={billingAddress.country}
-                className="p-2 border w-full border-gray-300 rounded"
-              />
-              <input
-                type="text"
-                placeholder={billingAddress.zipcode}
                 className="p-2 border w-full border-gray-300 rounded"
               />
             </div>

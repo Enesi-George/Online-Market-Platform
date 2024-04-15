@@ -40,6 +40,23 @@ h1, h2, h3, h4, h5, h6 {
       display: hidden !important;
     }
   }
+  
+  /* Style the scrollbar track */
+::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #212121; /* Set the color of the scrollbar thumb */
+  border-radius: 6px; /* Add some border-radius for a rounded look */
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the color of the scrollbar track */
+  border: 1px solid #e0e0e0; /* Set the border of the scrollbar track */
+}
 
   /* all category */
   .custom-dropdown {
@@ -84,26 +101,27 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #e53e3e78 !important; /* Red-500 color */
 }
 
-.overflow-y-auto {
-  height: 300px;
-  overflow-y: auto;
-}
-
-.overflow-y-auto::-webkit-scrollbar {
-  width: 8px; /* Set the width of the scrollbar */
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background-color: #212121; /* Set the color of the scrollbar thumb */
-  border-radius: 6px; /* Add some border-radius for a rounded look */
-}
-
-.overflow-y-auto::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Set the color of the scrollbar track */
-}
 .max-w-5sm{
   max-width: 927px;
 }
+/* Style the select dropdown */
+select {
+  background-color: #ffffff; /* Set background color */
+}
+
+/* Style the options in the dropdown */
+option {
+  background-color: #ffffff; /* Set background color */
+  color: black !important; /* Set text color */
+  }
+
+/* Style the selected option while scrolling */
+select:focus option:checked {
+  background-color: #212121 !important; /* Set background color */
+  color:white !important;
+}
+
+
 
 /* a {
   font-weight: 500;

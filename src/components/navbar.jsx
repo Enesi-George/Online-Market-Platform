@@ -1,5 +1,5 @@
 "use client";
-
+import { useState } from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -9,6 +9,9 @@ import { CategoriesMenu } from "./categoriesMenu";
 // import { profileItems } from "./profileItem";
 import { Brand } from "./brand";
 import { Link } from "react-router-dom";
+// import { Registration } from "./Authentication/Registration";
+import { Login } from "./Authentication/Login";
+import { Registration } from "./Authentication/Registration";
 
 const navigation = [
   { name: "Home", to: "/", current: true },
@@ -23,8 +26,26 @@ function classNames(...classes) {
 }
 
 export function NavigationBar() {
-  // Define your array of menu items
+  const [showModal, setShowModal] = useState(false);
+  const [showRegistrationModal, setShowRegistrationModal] = useState(false);
 
+  // Function to toggle the registration modal
+  const toggleRegistrationModal = () => {
+    setShowRegistrationModal(!showRegistrationModal);
+  };
+
+  // Function to close the registration modal and login modal
+  const closeRegistrationModal = () => {
+    setShowModal(false);
+    setTimeout(() => setShowRegistrationModal(false), 200);
+  };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <>
       <Brand />
@@ -65,7 +86,76 @@ export function NavigationBar() {
                         {item.name}
                       </Link>
                     ))}
+
+                    {/* Sign up modal */}
+                    <Transition
+                      show={showModal}
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
+                      <div className="fixed z-10 inset-0  my-auto">
+                        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                          {/* Background overlay */}
+                          <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0"
+                            enterTo="opacity-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <div
+                              className="fixed inset-0 transition-opacity"
+                              aria-hidden="true"
+                            >
+                              <div className="absolute inset-0 bg-gray-500 opacity-75" />
+                            </div>
+                          </Transition.Child>
+
+                          {/* Modal panel */}
+                          <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            enterTo="opacity-100 translate-y-0 sm:scale-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                          >
+                            <div className="flex justify-center items-center h-screen">
+                              <div className="inline-block border-2 max-w-md w-full border-red-500 bg-white rounded-lg text-left shadow-xl transform transition-all max-h-full">
+                                {showRegistrationModal ? (
+                                  <Registration
+                                    onClose={closeRegistrationModal}
+                                  />
+                                ) : (
+                                  <Login
+                                    onRegisterClick={toggleRegistrationModal}
+                                    onClose={closeModal}
+                                  />
+                                )}
+                              </div>
+                            </div>
+                          </Transition.Child>
+                        </div>
+                      </div>
+                    </Transition>
+
                     <div className=" inset-y-0 right-0 flex items-center  sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                      {/* Button to open modal */}
+                      <button
+                        onClick={toggleModal}
+                        className="text-white text-sm"
+                      >
+                        SignIn/Up
+                      </button>
+
                       <button
                         type="button"
                         className="relative rounded-full bg-gray-800  text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -144,6 +234,69 @@ export function NavigationBar() {
                 </div>
 
                 <div className=" flex md:hidden justify-end w-full ">
+                  {/* Sign up modal */}
+                  <Transition
+                    show={showModal}
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="fixed z-10 inset-0  my-auto">
+                      <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        {/* Background overlay */}
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0"
+                          enterTo="opacity-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100"
+                          leaveTo="opacity-0"
+                        >
+                          <div
+                            className="fixed inset-0 transition-opacity"
+                            aria-hidden="true"
+                          >
+                            <div className="absolute inset-0 bg-gray-500 opacity-75" />
+                          </div>
+                        </Transition.Child>
+
+                        {/* Modal panel */}
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                          enterTo="opacity-100 translate-y-0 sm:scale-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                          leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        >
+                          <div className="flex justify-center items-center h-screen">
+                            <div className="inline-block border-2 max-w-md w-full border-red-500 bg-white rounded-lg text-left shadow-xl transform transition-all max-h-full ">
+                              {showRegistrationModal ? (
+                                <Registration
+                                  onClose={closeRegistrationModal}
+                                />
+                              ) : (
+                                <Login
+                                  onRegisterClick={toggleRegistrationModal}
+                                  onClose={closeModal}
+                                />
+                              )}
+                            </div>
+                          </div>
+                        </Transition.Child>
+                      </div>
+                    </div>
+                  </Transition>
+                  {/* Button to open modal for small */}
+                  <button onClick={toggleModal} className="text-white text-sm">
+                    SignIn/Up
+                  </button>
                   <button
                     type="button"
                     className="relative rounded-full bg-gray-800  text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -152,7 +305,6 @@ export function NavigationBar() {
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
-
                   <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
